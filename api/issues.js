@@ -1,10 +1,7 @@
 const express = require('express');
 const path = require('path');
 
-
-const sqlite3 = require('sqlite3');
-const db = new sqlite3.Database(process.env.TEST_DATABASE ||
- path.resolve(__dirname,'../database.sqlite3'));
+const db = require('./db');
 
 const issuesRouter = express.Router({mergeParams: true});
 
