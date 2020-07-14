@@ -151,6 +151,43 @@ seriesRoute.put('/:seriesId',(req,res,next) => {
 
 });
 
+// delete series 
+
+seriesRoute.delete('/:seriesId',(req, res, next) => {
+     
+     // cehck database has issue related to this id 
+
+     db.all('SELECT * FROM Issue WHRE series_id = $seriesId',{
+      $seriesId: req.params.seriesId
+     },(error,issues) => {
+     
+       if(issues) 
+       {
+         res.sendStatus(400);
+       }
+       else
+       {
+         db.run('DELETE FROM Series WHERE id = $seriesId',{
+          $seriesId: req.params.seriesId
+        },
+        (err) => {
+           
+           if(err)
+           {
+            next(err);
+           }
+           else
+           {
+            res.sendStatus(204);
+           }
+
+        })
+       }
+
+     })
+
+})
+
 // import issue router 
 
 const issueRouter = require('./issues.js');

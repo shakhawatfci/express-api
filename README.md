@@ -135,7 +135,7 @@ The tests will additionally help you identify edge cases that you may not have a
 ## Project Contributor
 
 <h3>
-  <a href="https://github.com/shakhawat_fci" title="Shakhawat Hossain Sabbir">
+  <a href="https://github.com/shakhawatfci" title="Shakhawat Hossain Sabbir">
   Shakhawat Hossain Sabbir
 </a>
 </h3>
